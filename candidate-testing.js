@@ -5,7 +5,7 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = 'Dark Orange is also know as what?';
+let question = 'Dark Orange is also known as what?';
 let correctAnswer = 'brown';
 let candidateAnswer;
 
