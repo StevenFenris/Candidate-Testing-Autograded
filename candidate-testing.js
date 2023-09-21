@@ -5,8 +5,8 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-//let question = 'Dark Orange is also known as what?';
-//let correctAnswer = 'brown';
+let question = 'Dark Orange is also known as what?';
+let correctAnswer = 'brown';
 let candidateAnswer;
 
 
@@ -22,23 +22,37 @@ function askForName() {
     return name;
 }
 
-function askQuestion(questions, counter) {
+function askQuestion(questions) {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-     let answer = input.question(`${counter + 1})${questions[counter]}: `);
-     return answer;
+  let guesses = [];
+  for (let i = 0; i <questions.length; i++ ){
+     guesses[i] = input.question(`${i + 1})${questions[i]}: `);
+  }
+
+     return guesses;
 
 }
 
-function gradeQuiz(candidateAnswers, correctAnswers) {
-
+function gradeQuiz(candidateAnswers, correctAnswers, questions) {
+  let grade=0;
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  if (candidateAnswers != correctAnswers){
-    console.log(`Sorry, the correct answer is ${correctAnswers}!`);
-  }else console.log(`${candidateAnswers} is correct!`);
+  console.log(`Okay ${candidateName} let's grade your quiz!`);
+  console.log(`---------------------------------------------------------`);
+  for (i=0; i<correctAnswers.length; i++){
+    console.log(`Question ${i+1}) ${questions[i]}.`);
+    if (candidateAnswers[i].toString().toLowerCase() != correctAnswers[i].toString().toLowerCase()){
+      console.log(`Sorry, the correct answer is ${correctAnswers[i]}!`);
+    
+    }else{ 
+      console.log(`${correctAnswers[i]} is correct!`);
+      grade++;
+    }
+  }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+    //TODO 3.2 use this variable to calculate the candidates score.
+  grade = (100/questions.length)*grade;
+  console.log(grade)
 
   return grade;
 }
@@ -47,8 +61,8 @@ function runProgram() {
  candidateName = askForName();
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Greetings ${candidateName}, Let's get quizzin`);
-  candidateAnswers = askQuestion(question);
-  gradeQuiz(candidateAnswers, correctAnswers);
+  candidateAnswers = askQuestion(questions, questions.length);
+  gradeQuiz(candidateAnswers, correctAnswers, questions);
 }
 
 runProgram();
