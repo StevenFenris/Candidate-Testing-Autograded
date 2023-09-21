@@ -5,14 +5,14 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = 'Dark Orange is also known as what?';
-let correctAnswer = 'brown';
+let question = "Who was the first American woman in space?";
+let correctAnswer = 'Sally Ride';
 let candidateAnswer;
 
 
 //TODO: Variables for Part 2
-let questions = ["True or false: 5000 meters = 5 kilometers", "(5 + 3)/2 * 10 = ?", "Given the array [8, \"Orbit\", \"Trajectory\", 45], what entry is at index 2?", "Who was the first American woman in space?", "What is the minimum crew size for the International Space Station (ISS)?"];
-let correctAnswers= [true, 40, "Trajectory", "Sally Ride", 3];
+let questions = ["Who was the first American woman in space?", "True or False: 5 kilometer == 5000 meters?", '(5 + 3)/2 * 10 =?', "Given the array [8, \"Orbit\", \"Trajectory\", 45], what entry is at index 2?", "What is the minimum crew size for the International Space Station (ISS)?"];
+let correctAnswers= ['Sally Ride', 'true', 40, 'Trajectory', 3];
 let candidateAnswers = [];
 
 
@@ -51,8 +51,8 @@ function gradeQuiz(candidateAnswers, correctAnswers, questions) {
 
 
     //TODO 3.2 use this variable to calculate the candidates score.
-  grade = (100/questions.length)*grade;
-  console.log(grade)
+  //grade = (100/questions.length)*grade;
+  //console.log(grade)
 
   return grade;
 }
