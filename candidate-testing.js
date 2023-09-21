@@ -5,15 +5,15 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = 'Dark Orange is also known as what?';
-let correctAnswer = 'brown';
+//let question = 'Dark Orange is also known as what?';
+//let correctAnswer = 'brown';
 let candidateAnswer;
 
 
 //TODO: Variables for Part 2
-let questions;
-let correctAnswers;
-let candidateAnswers;
+let questions = ["True or false: 5000 meters = 5 kilometers", "(5 + 3)/2 * 10 = ?", "Given the array [8, \"Orbit\", \"Trajectory\", 45], what entry is at index 2?", "Who was the first American woman in space?", "What is the minimum crew size for the International Space Station (ISS)?"];
+let correctAnswers= [true, 40, "Trajectory", "Sally Ride", 3];
+let candidateAnswers = [];
 
 
 function askForName() {
@@ -22,19 +22,19 @@ function askForName() {
     return name;
 }
 
-function askQuestion(string) {
+function askQuestion(questions, counter) {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-     let answer = input.question(`${question}:`)
+     let answer = input.question(`${counter + 1})${questions[counter]}: `);
      return answer;
 
 }
 
-function gradeQuiz(candidateAnswer, correctAnswer) {
+function gradeQuiz(candidateAnswers, correctAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  if (candidateAnswer != correctAnswer){
-    console.log(`Sorry, the correct answer is ${correctAnswer}!`)
-  }else console.log(`${candidateAnswer} is correct!`);
+  if (candidateAnswers != correctAnswers){
+    console.log(`Sorry, the correct answer is ${correctAnswers}!`);
+  }else console.log(`${candidateAnswers} is correct!`);
 
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
@@ -47,8 +47,8 @@ function runProgram() {
  candidateName = askForName();
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Greetings ${candidateName}, Let's get quizzin`);
-  candidateAnswer = askQuestion(question);
-  gradeQuiz(candidateAnswer, correctAnswer);
+  candidateAnswers = askQuestion(question);
+  gradeQuiz(candidateAnswers, correctAnswers);
 }
 
 runProgram();
