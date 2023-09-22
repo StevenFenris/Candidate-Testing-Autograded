@@ -11,7 +11,7 @@ let candidateAnswer = '';
 
 
 //TODO: Variables for Part 2
-let questions = ["Who was the first American woman in space? ", "True or false: 5 kilometer == 5000 meters? ", "(5 + 3)/2 * 10 = ? ", "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "What is the minimum crew size for the ISS? "];
+let questions = ["Who was the first American woman in space? ", "True or False: 5 kilometer == 5000 meters?", '(5 + 3)/2 * 10 =?', "Given the array [8, \"Orbit\", \"Trajectory\", 45], what entry is at index 2?", "What is the minimum crew size for the International Space Station (ISS)?"];
 let correctAnswers= ['Sally Ride', 'true', '40', 'Trajectory', '3'];
 let candidateAnswers = [];
 
@@ -26,7 +26,7 @@ function askQuestion(questions) {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   let guesses = [];
   for (let i = 0; i <questions.length; i++ ){
-     guesses[i] = input.question(`${i + 1})${questions[i]} `);
+     guesses[i] = input.question(`${i + 1})${questions[i]}: `);
   }
 
      return guesses;
@@ -35,24 +35,23 @@ function askQuestion(questions) {
 
 function gradeQuiz(candidateAnswers, correctAnswers, questions) {
   let grade=0;
-  let numCorrect=0;
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   console.log(`Okay ${candidateName} let's grade your quiz!`);
   console.log(`---------------------------------------------------------`);
-  for (i=0; i < questions.length; i++){
+  for (i=0; i<questions.length; i++){
     console.log(`Question ${i+1}) ${questions[i]}.`);
-    if (candidateAnswers[i].toLowerCase() != correctAnswers[i].toLowerCase()){
+    if (candidateAnswers[i].toString().toLowerCase() != correctAnswers[i].toString().toLowerCase()){
       console.log(`Sorry, the correct answer is ${correctAnswers[i]}!`);
     
     }else{ 
       console.log(`${correctAnswers[i]} is correct!`);
-      numCorrect++;
+      grade++;
     }
   }
 
 
     //TODO 3.2 use this variable to calculate the candidates score.
-  grade = (numCorrect / questions.length) * 100;
+  grade = (100/questions.length)*grade;
   console.log(grade)
 
   return grade;
