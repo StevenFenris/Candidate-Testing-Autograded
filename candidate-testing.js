@@ -5,14 +5,14 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = "Who was the first American woman in space?";
+let question = "Who was the first American woman in space? ";
 let correctAnswer = 'Sally Ride';
-let candidateAnswer;
+let candidateAnswer = '';
 
 
 //TODO: Variables for Part 2
-let questions = ["Who was the first American woman in space?", "True or False: 5 kilometer == 5000 meters?", '(5 + 3)/2 * 10 =?', "Given the array [8, \"Orbit\", \"Trajectory\", 45], what entry is at index 2?", "What is the minimum crew size for the International Space Station (ISS)?"];
-let correctAnswers= ['Sally Ride', 'true', 40, 'Trajectory', 3];
+let questions = ["Who was the first American woman in space? ", "True or False: 5 kilometer == 5000 meters?", '(5 + 3)/2 * 10 =?', "Given the array [8, \"Orbit\", \"Trajectory\", 45], what entry is at index 2?", "What is the minimum crew size for the International Space Station (ISS)?"];
+let correctAnswers= ['Sally Ride', 'true', '40', 'Trajectory', '3'];
 let candidateAnswers = [];
 
 
@@ -38,7 +38,7 @@ function gradeQuiz(candidateAnswers, correctAnswers, questions) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   console.log(`Okay ${candidateName} let's grade your quiz!`);
   console.log(`---------------------------------------------------------`);
-  for (i=0; i<correctAnswers.length; i++){
+  for (i=0; i<questions.length; i++){
     console.log(`Question ${i+1}) ${questions[i]}.`);
     if (candidateAnswers[i].toString().toLowerCase() != correctAnswers[i].toString().toLowerCase()){
       console.log(`Sorry, the correct answer is ${correctAnswers[i]}!`);
@@ -51,8 +51,8 @@ function gradeQuiz(candidateAnswers, correctAnswers, questions) {
 
 
     //TODO 3.2 use this variable to calculate the candidates score.
-  //grade = (100/questions.length)*grade;
-  //console.log(grade)
+  grade = (100/questions.length)*grade;
+  console.log(grade)
 
   return grade;
 }
