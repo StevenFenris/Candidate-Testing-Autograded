@@ -8,7 +8,7 @@ let candidateName;
 let question = "Who was the first American woman in space? ";
 let correctAnswer = 'Sally Ride';
 let candidateAnswer = '';
-let grade = 0;
+let grade;
 
 
 //TODO: Variables for Part 2
@@ -34,7 +34,7 @@ function askQuestion() {
 
 }
 
-function gradeQuiz() {
+function gradeQuiz(candidateAnswers) {
   let grade=0;
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   console.log(`Okay ${candidateName} let's grade your quiz!`);
@@ -61,7 +61,7 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Greetings ${candidateName}, Let's get quizzin`);
   candidateAnswers = askQuestion();
-  grade = gradeQuiz();
+  grade = gradeQuiz(candidateAnswers);
   console.log(grade)
 }
 
