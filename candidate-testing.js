@@ -40,7 +40,7 @@ function gradeQuiz() {
   console.log(`Okay ${candidateName} let's grade your quiz!`);
   console.log(`---------------------------------------------------------`);
   for (i=0; i < questions.length; i++){
-    console.log(`Question ${i+1}) ${questions[i]}.`);
+    console.log(`Question ${i+1}) ${questions[i]}`);
     if (candidateAnswers[i].toLowerCase() != correctAnswers[i].toLowerCase()){
       console.log(`Sorry, the correct answer is ${correctAnswers[i]}!`);
     
@@ -60,8 +60,9 @@ function runProgram() {
  candidateName = askForName();
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Greetings ${candidateName}, Let's get quizzin`);
-  candidateAnswers = askQuestion(questions);
-  grade = gradeQuiz(candidateAnswers, correctAnswers);
+  candidateAnswers = askQuestion();
+  grade = gradeQuiz();
+  console.log(grade)
 }
 
 runProgram();
