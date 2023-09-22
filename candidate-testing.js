@@ -46,7 +46,7 @@ function gradeQuiz() {
     
     }else{ 
       console.log(`${correctAnswers[i]} is correct!`);
-      grade+=20;
+      grade+=(100/candidateAnswers.length);
     }
   }
 
