@@ -8,6 +8,7 @@ let candidateName;
 let question = "Who was the first American woman in space? ";
 let correctAnswer = 'Sally Ride';
 let candidateAnswer = '';
+let grade = 0;
 
 
 //TODO: Variables for Part 2
@@ -22,7 +23,7 @@ function askForName() {
     return name;
 }
 
-function askQuestion(questions) {
+function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   let guesses = [];
   for (let i = 0; i <questions.length; i++ ){
@@ -33,9 +34,8 @@ function askQuestion(questions) {
 
 }
 
-function gradeQuiz(candidateAnswers, correctAnswers, questions) {
+function gradeQuiz() {
   let grade=0;
-  let numCorrect=0;
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   console.log(`Okay ${candidateName} let's grade your quiz!`);
   console.log(`---------------------------------------------------------`);
@@ -46,14 +46,12 @@ function gradeQuiz(candidateAnswers, correctAnswers, questions) {
     
     }else{ 
       console.log(`${correctAnswers[i]} is correct!`);
-      numCorrect++;
+      grade+=20;
     }
   }
 
 
     //TODO 3.2 use this variable to calculate the candidates score.
-  grade = (numCorrect / questions.length) * 100;
-  console.log(grade)
 
   return grade;
 }
@@ -63,7 +61,7 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Greetings ${candidateName}, Let's get quizzin`);
   candidateAnswers = askQuestion(questions);
-  gradeQuiz(candidateAnswers, correctAnswers, questions);
+  grade = gradeQuiz(candidateAnswers, correctAnswers);
 }
 
 runProgram();
