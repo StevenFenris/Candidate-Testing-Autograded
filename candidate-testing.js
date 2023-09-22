@@ -62,7 +62,7 @@ function runProgram() {
  candidateName = askForName();
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Greetings ${candidateName}, Let's get quizzin`);
-  candidateAnswers = askQuestion(questions, questions.length);
+  candidateAnswers = askQuestion(questions);
   gradeQuiz(candidateAnswers, correctAnswers, questions);
 }
 
