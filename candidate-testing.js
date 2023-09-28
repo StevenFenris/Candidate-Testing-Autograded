@@ -50,7 +50,9 @@ function gradeQuiz(candidateAnswers) {
     }
   }
 
-
+if(grade>=80){
+  console.log(`Congratulations ${candidateName}! you passed with an ${grade}!`);
+}else console.log(`Sorry ${candidateName}, a ${grade} does not pass`);
     //TODO 3.2 use this variable to calculate the candidates score.
 
   return grade;
